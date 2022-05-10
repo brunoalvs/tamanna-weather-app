@@ -23,17 +23,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --primary: #00bcd4;
+    --primary: linear-gradient(180deg, #35ACC7 0%, #35C7BE 100%);
 
-    --gray-100: #fafafa;
-    --gray-200: #f5f5f5;
-    --gray-300: #eeeeee;
-    --gray-400: #e0e0e0;
-    --gray-500: #bdbdbd;
-    --gray-600: #9e9e9e;
-    --gray-700: #757575;
-    --gray-800: #616161;
-    --gray-900: #424242;
-
+    --background: #2E2F37;
+    --shape: #464B59;
+    --card-bg: rgba(224, 224, 225, 16%);
   }
 `
