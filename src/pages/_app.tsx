@@ -1,8 +1,8 @@
 // _app - Next.js app
-import { AppProps } from "next/app";
-import Head from "next/head";
-import { GlobalStyle } from "../components/_global";
-import { Layout } from "../components/Templates/Layout";
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { GlobalStyle } from '../components/_global'
+import { Layout } from '../components/Templates/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
