@@ -19,14 +19,22 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.6rem;
-    line-height: 1.5;
+  }
+
+  #__next {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
   }
 
   :root {
-    --primary: linear-gradient(180deg, #35ACC7 0%, #35C7BE 100%);
+    --gradient: linear-gradient(180deg, #35ACC7 0%, #35C7BE 100%);
 
     --background: #2E2F37;
-    --shape: #464B59;
-    --card-bg: rgba(224, 224, 225, 16%);
+    --midground: #4B4B52;
+    --foreground: #464B59; // shape
+
+    --text-color: #FFF;
+    --text-on-shape: #85888F;
   }
 `
