@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Container } from './styles'
+import { useRouter } from 'next/router'
+import { Container, Icon, Text } from './styles'
 
 interface HeaderNavigationItemProps {
   label: string
@@ -12,13 +13,15 @@ export const HeaderNavigationItem = ({
   icon,
   route,
 }: HeaderNavigationItemProps) => {
+  const { asPath } = useRouter()
+
   return (
     <Link href={route}>
-      <Container>
-        <figure className="icon">
+      <Container isActive={asPath === route}>
+        <Icon>
           <img src={icon} alt={`Icon to ${label} page`} />
-        </figure>
-        <span className="text">{label}</span>
+        </Icon>
+        <Text>{label}</Text>
       </Container>
     </Link>
   )

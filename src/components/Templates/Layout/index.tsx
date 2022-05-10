@@ -1,3 +1,4 @@
+import { Container, Content } from './styles'
 import { HeaderNavigation } from '../../Organisms/HeaderNavigation'
 
 interface LayoutProps {
@@ -7,10 +8,10 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <>
-      <main>
+      <Container>
+        <Content>{children}</Content>
         <HeaderNavigation />
-        {children}
-      </main>
+      </Container>
     </>
   )
 }
