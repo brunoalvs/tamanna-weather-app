@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { InputSearch } from '../components/Atoms/InputSearch'
-import { Forecast } from '../components/Organisms/Forecast'
-import { WeatherHome } from '../components/Organisms/WeatherHome'
+import { InputSearch } from '../components/InputSearch'
+import { WeatherHome } from '../components/WeatherHome'
+import { Forecast } from '../components/Forecast'
 
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState('')
@@ -17,7 +17,6 @@ export default function HomePage() {
         onChange={onChange}
         value={searchValue}
       />
-
       <WeatherHome />
       <Forecast />
     </div>

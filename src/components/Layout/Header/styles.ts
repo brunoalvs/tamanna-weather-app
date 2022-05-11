@@ -19,7 +19,7 @@ export const Container = styled.header`
   }
 `
 
-export const Wrapper = styled.nav`
+export const Navigation = styled.nav`
   display: grid;
   gap: 3rem;
 

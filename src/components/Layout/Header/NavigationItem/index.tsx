@@ -2,17 +2,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Container, Icon, Text } from './styles'
 
-interface HeaderNavigationItemProps {
+interface NavigationItemProps {
   label: string
   icon: string
   route: string
 }
 
-export const HeaderNavigationItem = ({
-  label,
-  icon,
-  route,
-}: HeaderNavigationItemProps) => {
+export const NavigationItem = ({ label, icon, route }: NavigationItemProps) => {
   const { asPath } = useRouter()
 
   return (

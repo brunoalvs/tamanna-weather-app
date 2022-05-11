@@ -1,6 +1,10 @@
-export const Forecast = () => {
+import { Container } from './styles'
+
+interface ForecastProps {}
+
+export const Forecast = ({}: ForecastProps) => {
   return (
-    <div>
+    <Container>
       <h2>This Week</h2>
 
       <ul>
@@ -12,6 +16,6 @@ export const Forecast = () => {
         <li>Fri</li>
         <li>Sat</li>
       </ul>
-    </div>
+    </Container>
   )
 }
