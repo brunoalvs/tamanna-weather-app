@@ -1,24 +1,41 @@
+import { useState } from 'react'
+import { LocationCard } from '../components/LocationCard'
+import { Container, ListLocations } from '../components/Templates/Locations'
+
 export default function Locations() {
+  const [locations, setLocations] = useState([
+    {
+      city: 'Lisbon',
+      country: 'Portugal',
+      temperature: 21,
+      weather: 'sunny',
+      active: false,
+    },
+    {
+      city: 'London',
+      country: 'United Kingdom',
+      temperature: 15,
+      weather: 'cloudy',
+      active: true,
+    },
+    {
+      city: 'Paris',
+      country: 'France',
+      temperature: 19,
+      weather: 'rainy',
+      active: false,
+    },
+  ])
+
   return (
-    <div>
-      <h1>Locations</h1>
+    <Container>
+      <h2 className="title">Locations</h2>
 
-      <ul>
-        <li>
-          <p className="location-info">
-            <span className="city-name">Lisbon</span>
-            <span className="country">Portugal</span>
-          </p>
-
-          <p className="temperature">
-            <span className="temperature-value">21</span>
-            <span className="temperature-unit">°C</span>
-          </p>
-          <figure className="weather-icon">
-            <img src="/icons/weather/sunny.svg" alt="weather icon" />
-          </figure>
-        </li>
-      </ul>
-    </div>
+      <ListLocations>
+        {locations.map(location => (
+          <LocationCard key={location.city} {...location} />
+        ))}
+      </ListLocations>
+    </Container>
   )
 }
