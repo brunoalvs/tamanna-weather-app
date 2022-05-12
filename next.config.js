@@ -5,4 +5,8 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
+  env: {
+    OPENWEATHERMAP_APIKEY: process.env.OPENWEATHERMAP_APIKEY,
+    OPENWEATHERMAP_HOST: process.env.OPENWEATHERMAP_HOST,
+  },
 }
