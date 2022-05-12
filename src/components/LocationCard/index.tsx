@@ -3,6 +3,8 @@ import { ILocation } from '../../../types'
 import { useLocationInfo } from '../../contexts/location-info'
 import { getWeather } from '../../helpers/getWeather'
 import { SaveLocationButton } from '../SaveLocationButton'
+import { ButtonRemoveLocation } from '../ButtonRemoveLocation'
+
 import { Container, LocationInfo, Temperature } from './styles'
 
 interface LocationCardProps {
@@ -47,12 +49,7 @@ export const LocationCard = ({ ...props }: ILocation) => {
           </figure>
         </Temperature>
 
-        <SaveLocationButton
-          isActive={true}
-          onClick={() => {
-            removeLocation(props)
-          }}
-        />
+        <ButtonRemoveLocation onClick={() => removeLocation(props)} />
       </Container>
     </>
   )
