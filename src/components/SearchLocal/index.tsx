@@ -27,17 +27,22 @@ export const SearchLocal: React.FC = () => {
     }
 
     const response = await fetch(
-      `https://api.opencagedata.com/geocode/v1/json?q=${e.target.value}&key=${process.env.OPENCAGEDATA_APIKEY}`
+      `https://api.opencagedata.com/geocode/v1/json?q=${e.target.value}&language=en&no_dedupe=1&key=${process.env.OPENCAGEDATA_APIKEY}`
     )
     const data = await response.json()
 
-    const filteredData = data.results.filter(
-      (result: { components: { city: string; country: string } }) => {
-        return result.components.city && result.components.country
+    const filteredLocations = data.results.filter(
+      (location: { components: { city: string; country: string } }) => {
+        return location.components.city && location.components.country
       }
     )
 
-    setPossiblyLocations(filteredData)
+    setPossiblyLocations(filteredLocations)
+  }
+
+  const resetSearch = () => {
+    setSearchValue('')
+    setPossiblyLocations([])
   }
 
   const handleClickLocation = location => {
@@ -61,9 +66,7 @@ export const SearchLocal: React.FC = () => {
     }
     addLocation(locationSelected)
 
-    // Reset search
-    setPossiblyLocations([])
-    setSearchValue('')
+    resetSearch()
   }
 
   return (

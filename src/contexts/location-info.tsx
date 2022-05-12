@@ -3,18 +3,19 @@ import { ILocation } from '../../types'
 
 import { getUserGeoLocation } from '../helpers/getUserGeoLocation'
 import { getCityByCoordinates } from '../helpers/getCityByCoordinates'
-import { getCoordinatesByCity } from '../helpers/getCoordinatesByCity'
 
 type LocationInfoContextType = {
   location: ILocation
   locations: ILocation[]
   addLocation: (location: ILocation) => void
+  removeLocation: (location: ILocation) => void
 }
 
 const LocationInfoContext = createContext<LocationInfoContextType>({
   location: { city: '', country: '', coord: { lat: 0, lon: 0 } },
   locations: [],
   addLocation: () => {},
+  removeLocation: () => {},
 })
 
 const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
@@ -26,7 +27,12 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
   const [locations, setLocations] = useState<ILocation[]>([])
 
   const addLocation = (location: ILocation) => {
+    console.log(`Adding location: ${location.city} to the list of locations`)
     setLocations([...locations, location])
+  }
+
+  const removeLocation = (location: ILocation) => {
+    setLocations(locations.filter(loc => loc.city !== location.city))
   }
 
   useEffect(() => {
@@ -53,6 +59,7 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
         location,
         locations,
         addLocation,
+        removeLocation,
       }}
     >
       {children}

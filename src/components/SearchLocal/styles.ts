@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  /* border: 1px dashed crimson; */
+  position: relative;
 `
 
 export const Input = styled.input`
@@ -36,6 +36,9 @@ export const ListResults = styled.ul<{ isOpen: boolean }>`
     translateY(0.05rem);
   transform-origin: top;
   transition: transform 0.2s ease;
+
+  position: absolute;
+  top: 100%;
 
   li {
     cursor: pointer;

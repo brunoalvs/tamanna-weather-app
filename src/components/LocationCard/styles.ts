@@ -28,7 +28,7 @@ export const Temperature = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   > .temp {
     font-size: 2.4rem;
