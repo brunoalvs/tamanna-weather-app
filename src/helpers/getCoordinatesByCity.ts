@@ -5,9 +5,6 @@ function getCoordinatesByCity(city) {
     .then(response => response.json())
     .then(data => {
       data.results[0].geometry
-      data.results[0].geometry
-      console.log(data.results[0].geometry)
-      console.log(data.results[0])
     })
     .catch(error => console.log('error', error))
 }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { InputSearch } from '../components/InputSearch'
 import { WeatherHome } from '../components/WeatherHome'
 import { Forecast } from '../components/Forecast'
 

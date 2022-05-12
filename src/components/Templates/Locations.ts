@@ -5,15 +5,14 @@ export const Container = styled.section`
   flex-direction: column;
   gap: 2rem;
   color: var(--text-color);
-
-  > .title {
-    font-size: 3rem;
-  }
+  padding: 1rem;
 `
 
 export const ListLocations = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   flex-wrap: wrap;
   color: honeydew;
+  list-style: none;
 `

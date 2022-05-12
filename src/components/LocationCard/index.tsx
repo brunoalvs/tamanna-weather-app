@@ -4,18 +4,9 @@ import { Container, LocationInfo, Temperature } from './styles'
 interface LocationCardProps {
   city: string
   country: string
-  temperature: number
-  weather: string
-  saved: boolean
 }
 
-export const LocationCard = ({
-  city,
-  country,
-  temperature,
-  weather,
-  saved,
-}: LocationCardProps) => {
+export const LocationCard = ({ city, country }: LocationCardProps) => {
   return (
     <>
       <Container>
@@ -26,16 +17,16 @@ export const LocationCard = ({
 
         <Temperature>
           <p className="temp">
-            <span className="temperature-value">{temperature}</span>
+            <span className="temperature-value">21</span>
             <span className="temperature-unit">°C</span>
           </p>
           <figure className="weather-icon">
-            <img src="/icons/weather/sunny.svg" alt={weather} />
+            <img src="/icons/weather/sunny.svg" alt={'weather'} />
           </figure>
         </Temperature>
 
         <SaveLocationButton
-          isActive={saved}
+          isActive={true}
           onClick={() => console.log('Saved')}
         />
       </Container>

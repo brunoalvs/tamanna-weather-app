@@ -1,29 +1,14 @@
+import { SearchLocal } from '../components/SearchLocal'
 import { Container, ListLocations } from '../components/Templates/Locations'
 import { useLocationInfo } from '../contexts/location-info'
 
 export default function Locations() {
-  const { locations, addLocation } = useLocationInfo()
+  const { locations } = useLocationInfo()
 
   return (
     <>
       <Container>
-        <h2 className="title">Locations</h2>
-
-        <button
-          onClick={() => {
-            addLocation({
-              city: 'Portso',
-              country: 'Portugal',
-              coord: {
-                lat: 41.15,
-                lon: -8.6,
-              },
-              saved: true,
-            })
-          }}
-        >
-          <span>Add Location</span>
-        </button>
+        <SearchLocal />
 
         <ListLocations>
           {locations.map((location, index) => (
