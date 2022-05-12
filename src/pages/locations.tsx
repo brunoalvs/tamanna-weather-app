@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { ILocation } from '../../types'
-import { LocationCard } from '../components/LocationCard'
 import { Container, ListLocations } from '../components/Templates/Locations'
 import { useLocationInfo } from '../contexts/location-info'
 
@@ -29,13 +26,12 @@ export default function Locations() {
         </button>
 
         <ListLocations>
-          {locations.map(location => (
-            <li key={location.city.trim()}>
+          {locations.map((location, index) => (
+            <li key={index}>
               <p>
                 {location.city}, {location.country}
               </p>
             </li>
-            // <LocationCard key={location.city} {...location} />
           ))}
         </ListLocations>
       </Container>

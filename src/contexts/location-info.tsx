@@ -1,6 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { ILocation } from '../../types'
 
+import { getUserGeoLocation } from '../helpers/getUserGeoLocation'
+import { getCityByCoordinates } from '../helpers/getCityByCoordinates'
+import { getCoordinatesByCity } from '../helpers/getCoordinatesByCity'
+
 type LocationInfoContextType = {
   location: ILocation
   locations: ILocation[]
@@ -26,11 +30,21 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   useEffect(() => {
-    setLocation({
-      city: 'São Paulo',
-      country: 'Brazil',
-      coord: { lat: -23.5489, lon: -46.6388 },
-    })
+    getUserGeoLocation()
+      .then(coord => {
+        console.log('🍍', coord)
+        getCityByCoordinates(coord[0], coord[1])
+          .then(res => {
+            console.log('🍎', res)
+            res && setLocation(res)
+          })
+          .catch(err => {
+            console.log('🍊', err.message)
+          })
+      })
+      .catch(err => {
+        console.log('🍉', err.message)
+      })
   }, [])
 
   return (
