@@ -1,41 +1,44 @@
 import { useState } from 'react'
+import { ILocation } from '../../types'
 import { LocationCard } from '../components/LocationCard'
 import { Container, ListLocations } from '../components/Templates/Locations'
+import { useLocationInfo } from '../contexts/location-info'
 
 export default function Locations() {
-  const [locations, setLocations] = useState([
-    {
-      city: 'Lisbon',
-      country: 'Portugal',
-      temperature: 21,
-      weather: 'sunny',
-      active: false,
-    },
-    {
-      city: 'London',
-      country: 'United Kingdom',
-      temperature: 15,
-      weather: 'cloudy',
-      active: true,
-    },
-    {
-      city: 'Paris',
-      country: 'France',
-      temperature: 19,
-      weather: 'rainy',
-      active: false,
-    },
-  ])
+  const { locations, addLocation } = useLocationInfo()
 
   return (
-    <Container>
-      <h2 className="title">Locations</h2>
+    <>
+      <Container>
+        <h2 className="title">Locations</h2>
 
-      <ListLocations>
-        {locations.map(location => (
-          <LocationCard key={location.city} {...location} />
-        ))}
-      </ListLocations>
-    </Container>
+        <button
+          onClick={() => {
+            addLocation({
+              city: 'Portso',
+              country: 'Portugal',
+              coord: {
+                lat: 41.15,
+                lon: -8.6,
+              },
+              saved: true,
+            })
+          }}
+        >
+          <span>Add Location</span>
+        </button>
+
+        <ListLocations>
+          {locations.map(location => (
+            <li key={location.city.trim()}>
+              <p>
+                {location.city}, {location.country}
+              </p>
+            </li>
+            // <LocationCard key={location.city} {...location} />
+          ))}
+        </ListLocations>
+      </Container>
+    </>
   )
 }

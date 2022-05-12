@@ -6,7 +6,7 @@ interface LocationCardProps {
   country: string
   temperature: number
   weather: string
-  active: boolean
+  saved: boolean
 }
 
 export const LocationCard = ({
@@ -14,7 +14,7 @@ export const LocationCard = ({
   country,
   temperature,
   weather,
-  active,
+  saved,
 }: LocationCardProps) => {
   return (
     <>
@@ -35,7 +35,7 @@ export const LocationCard = ({
         </Temperature>
 
         <SaveLocationButton
-          isActive={active}
+          isActive={saved}
           onClick={() => console.log('Saved')}
         />
       </Container>

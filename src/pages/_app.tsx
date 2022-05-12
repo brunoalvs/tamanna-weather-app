@@ -4,22 +4,20 @@ import Head from 'next/head'
 import { GlobalStyle } from '../components/_global'
 import { Layout } from '../components/Layout'
 
+import { LocationInfoProvider } from '../contexts/location-info'
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <LocationInfoProvider>
       <Head>
         <title>TamannaWeather App</title>
-        <style>
-          {`
-            @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
-          `}
-        </style>
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <GlobalStyle />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </LocationInfoProvider>
   )
 }
 

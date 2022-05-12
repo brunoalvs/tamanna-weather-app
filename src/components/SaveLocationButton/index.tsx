@@ -10,9 +10,7 @@ export const SaveLocationButton = ({
   isActive,
   onClick,
 }: SaveLocationButtonProps) => {
-  useEffect(() => {
-    console.log('isActive', isActive)
-  }, [isActive])
+  useEffect(() => {}, [isActive])
 
   return (
     <Container
