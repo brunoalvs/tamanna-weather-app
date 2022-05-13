@@ -2,15 +2,9 @@ import { useEffect, useState } from 'react'
 import { ILocation } from '../../../types'
 import { useLocationInfo } from '../../contexts/location-info'
 import { getWeather } from '../../helpers/getWeather'
-import { SaveLocationButton } from '../SaveLocationButton'
 import { ButtonRemoveLocation } from '../ButtonRemoveLocation'
 
 import { Container, LocationInfo, Temperature } from './styles'
-
-interface LocationCardProps {
-  city: string
-  country: string
-}
 
 type WeatherObject = {
   temp: number
@@ -19,11 +13,12 @@ type WeatherObject = {
 }
 
 export const LocationCard = ({ ...props }: ILocation) => {
+  const [weatherInfo, setWeatherInfo] = useState<WeatherObject>({
+    temp: 0,
+    description: '',
+    weather: '',
+  })
   const { removeLocation } = useLocationInfo()
-
-  console.log('LocationCard', props)
-
-  const [weatherInfo, setWeatherInfo] = useState<WeatherObject>()
 
   useEffect(() => {
     getWeather(props).then(result => {

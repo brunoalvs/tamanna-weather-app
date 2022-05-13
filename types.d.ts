@@ -5,7 +5,6 @@ interface ILocation {
     lat: number
     lon: number
   }
-  saved?: boolean
 }
 
 export type LocationContextType = {

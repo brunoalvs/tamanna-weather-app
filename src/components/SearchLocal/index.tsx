@@ -37,7 +37,16 @@ export const SearchLocal: React.FC = () => {
       }
     )
 
-    setPossiblyLocations(filteredLocations)
+    const uniqueLocations = filteredLocations.filter(
+      (location, index) =>
+        filteredLocations.findIndex(
+          filteredLocation =>
+            filteredLocation.components.city === location.components.city &&
+            filteredLocation.components.country === location.components.country
+        ) === index
+    )
+
+    setPossiblyLocations(uniqueLocations)
   }
 
   const resetSearch = () => {

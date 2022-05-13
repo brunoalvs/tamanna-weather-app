@@ -11,8 +11,6 @@ const getWeather = async ({ coord }: ILocation) => {
   const getData = await fetch(url)
   const weatherData = await getData.json()
 
-  console.log('weatherData', weatherData)
-
   const weather: WeatherObject = {
     temp: Math.floor(weatherData.main.temp),
     description: weatherData.weather[0].description,

@@ -6,14 +6,17 @@ import { useLocationInfo } from '../contexts/location-info'
 export default function Locations() {
   const { locations } = useLocationInfo()
 
+  console.table(locations)
+
   return (
     <>
       <Container>
         <SearchLocal />
 
         <ListLocations>
-          {locations.map((location, index) => (
-            <LocationCard key={index} {...location} />
+          {/* Map locations using react use memo  */}
+          {locations.map(location => (
+            <LocationCard key={location.city} {...location} />
           ))}
         </ListLocations>
       </Container>

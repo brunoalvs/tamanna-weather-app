@@ -27,29 +27,28 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
   const [locations, setLocations] = useState<ILocation[]>([])
 
   const addLocation = (location: ILocation) => {
-    console.log(`Adding location: ${location.city} to the list of locations`)
     setLocations([...locations, location])
   }
 
   const removeLocation = (location: ILocation) => {
-    setLocations(locations.filter(loc => loc.city !== location.city))
+    setLocations(
+      locations.filter(locationSaved => locationSaved.city !== location.city)
+    )
   }
 
   useEffect(() => {
     getUserGeoLocation()
       .then(coord => {
-        console.log('🍍', coord)
         getCityByCoordinates(coord[0], coord[1])
           .then(res => {
-            console.log('🍎', res)
             res && setLocation(res)
           })
           .catch(err => {
-            console.log('🍊', err.message)
+            console.error('Error getting city by coordinates', err.message)
           })
       })
       .catch(err => {
-        console.log('🍉', err.message)
+        console.error('Error getting user location', err.message)
       })
   }, [])
 
