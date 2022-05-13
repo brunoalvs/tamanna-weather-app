@@ -7,7 +7,7 @@ export const Container = styled.li`
 
   width: 100%;
   display: grid;
-  gap: 2.5rem;
+  gap: 1rem;
   grid-template-columns: 1fr max-content 40px;
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -28,10 +28,15 @@ export const Temperature = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 
   > .temp {
     font-size: 2.4rem;
     color: var(--text-color);
+    text-align: end;
+  }
+
+  > .weather-icon {
+    width: 40px;
   }
 `

@@ -16,7 +16,7 @@ const getWeather = async ({ coord }: ILocation) => {
   const weather: WeatherObject = {
     temp: Math.floor(weatherData.main.temp),
     description: weatherData.weather[0].description,
-    weather: weatherData.weather[0].main,
+    weather: weatherData.weather[0].icon,
   }
 
   return weather

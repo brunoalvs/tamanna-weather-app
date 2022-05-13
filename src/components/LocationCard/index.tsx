@@ -41,11 +41,14 @@ export const LocationCard = ({ ...props }: ILocation) => {
 
         <Temperature>
           <p className="temp">
-            <span className="temperature-value">{weatherInfo?.temp}</span>
-            <span className="temperature-unit">°C</span>
+            <span className="value">{weatherInfo?.temp}</span>
+            <span className="unit">°C</span>
           </p>
           <figure className="weather-icon">
-            <img src="/icons/weather/sunny.svg" alt={'weather'} />
+            <img
+              src={`/icons/weather/${weatherInfo?.weather}.svg`}
+              alt={'weather'}
+            />
           </figure>
         </Temperature>
 
