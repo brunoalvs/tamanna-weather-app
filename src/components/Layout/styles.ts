@@ -22,6 +22,5 @@ export const Content = styled.section`
 
   @media (min-width: 745px) {
     max-height: 100vh;
-    padding: 1rem;
   }
 `
