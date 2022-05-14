@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: var(--foreground);
   padding: 3rem 1.5rem;
+  max-height: 100vh;
+  overflow-y: auto;
 
   .title {
     font-size: 3.6rem;
@@ -49,7 +51,18 @@ export const ListItem = styled.li`
     }
 
     figcaption {
+      display: block;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+      -moz-box-orient: vertical;
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
       text-transform: capitalize;
+      text-overflow: ellipsis;
+      white-space: normal;
+      word-break: break-all;
     }
   }
 `
