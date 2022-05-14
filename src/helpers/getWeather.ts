@@ -1,4 +1,5 @@
-import { ICoordinates } from '../../types'
+import { ICoordinates, IForecastData, IWeatherData } from '../../types'
+import handleClockTime from './handleClockTime'
 
 async function getDataInOpenWeatherMapAPI(
   coordinates: ICoordinates,
@@ -17,18 +18,20 @@ async function getDataInOpenWeatherMapAPI(
   return data
 }
 
-interface IWeatherData {}
-
-interface IForecastData {}
-
 const useWeather = () => {
   const getWeather = async (coordinates: ICoordinates) => {
     const data = await getDataInOpenWeatherMapAPI(coordinates, 'weather')
 
-    const weather = {
+    const weather: IWeatherData = {
       temp: Math.floor(data.main.temp),
       description: data.weather[0].description,
       weather: data.weather[0].icon,
+      minmax: {
+        min: Math.floor(data.main.temp_min),
+        max: Math.floor(data.main.temp_max),
+      },
+      sunrise: handleClockTime(data.sys.sunrise),
+      sunset: handleClockTime(data.sys.sunset),
     }
 
     console.log('Data from OpenWeatherMap API:', data)
@@ -40,7 +43,7 @@ const useWeather = () => {
   const getForecast = async (coordinates: ICoordinates) => {
     const data = await getDataInOpenWeatherMapAPI(coordinates, 'forecast')
 
-    const forecast = {
+    const forecast: IForecastData = {
       data,
     }
 

@@ -14,3 +14,17 @@ export type LocationContextType = {
   addLocation: (location: ILocation) => void
   removeLocation: (location: ILocation) => void
 }
+
+interface IWeatherData {
+  temp: number
+  description: string
+  weather: string
+  minmax: {
+    min: number
+    max: number
+  }
+  sunrise: string
+  sunset: string
+}
+
+interface IForecastData {}

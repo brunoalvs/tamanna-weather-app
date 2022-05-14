@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     --gradient: linear-gradient(180deg, #35ACC7 0%, #35C7BE 100%);
 
     --background: #2E2F37;
-    --midground: #4B4B52;
+    --midground: #4A4B52;
     --foreground: #464B59; // shape
 
     --text-color: #FFF;
