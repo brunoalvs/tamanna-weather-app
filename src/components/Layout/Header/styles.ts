@@ -9,12 +9,9 @@ export const Container = styled.header`
 
   @media (max-width: 744px) {
     border-radius: 1.5rem 1.5rem 0 0;
-  }
-
-  @media (max-width: 1224px) {
-  }
-
-  @media (min-width: 1225px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 `
 
