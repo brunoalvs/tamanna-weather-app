@@ -8,6 +8,7 @@ export const Container = styled.header`
   padding: 1rem;
 
   @media (max-width: 744px) {
+    width: 100%;
     border-radius: 1.5rem 1.5rem 0 0;
     position: fixed;
     bottom: 0;
