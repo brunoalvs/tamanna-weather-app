@@ -18,7 +18,7 @@ export const Content = styled.section`
   width: 100%;
   height: 100%;
   max-height: calc(100vh - 6rem);
-  overflow-x: hidden;
+  overflow-x: auto;
 
   @media (min-width: 745px) {
     max-height: 100vh;

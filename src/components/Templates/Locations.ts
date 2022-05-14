@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
+  max-width: 900px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   gap: 2rem;
