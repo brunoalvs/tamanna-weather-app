@@ -20,6 +20,11 @@ export const Container = styled.li`
 export const LocationInfo = styled.section`
   color: var(--text-color);
 
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
   .city {
     font-size: 2rem;
 

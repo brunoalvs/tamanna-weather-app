@@ -6,6 +6,7 @@ import handleGeoLocation from '../helpers/userGeoLocation'
 type LocationInfoContextType = {
   location: ILocation
   locations: ILocation[]
+  updateLocation: (location: ILocation) => void
   addLocation: (location: ILocation) => void
   removeLocation: (location: ILocation) => void
 }
@@ -13,6 +14,7 @@ type LocationInfoContextType = {
 const LocationInfoContext = createContext<LocationInfoContextType>({
   location: { city: '', country: '', coord: { lat: 0, lon: 0 } },
   locations: [],
+  updateLocation: () => {},
   addLocation: () => {},
   removeLocation: () => {},
 })
@@ -24,6 +26,10 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
     coord: { lat: 38.7259284, lon: -9.137382 },
   })
   const [locations, setLocations] = useState<ILocation[]>([])
+
+  const updateLocation = (location: ILocation) => {
+    setLocation(location)
+  }
 
   const addLocation = (location: ILocation) => {
     localStorage.setItem('locations', JSON.stringify([...locations, location]))
@@ -62,6 +68,7 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         location,
         locations,
+        updateLocation,
         addLocation,
         removeLocation,
       }}

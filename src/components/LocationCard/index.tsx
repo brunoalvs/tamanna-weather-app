@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { ILocation } from '../../../types'
 import { useLocationInfo } from '../../contexts/location-info'
@@ -18,7 +19,7 @@ export const LocationCard = ({ ...props }: ILocation) => {
     description: '',
     weather: '',
   })
-  const { removeLocation } = useLocationInfo()
+  const { removeLocation, updateLocation } = useLocationInfo()
   const { getWeather } = useWeather()
 
   useEffect(() => {
@@ -30,11 +31,19 @@ export const LocationCard = ({ ...props }: ILocation) => {
   return (
     <>
       <Container>
-        <LocationInfo>
-          <p className="city" aria-label={props.city}>
-            {props.city}
-          </p>
-          <p className="country">{props.country}</p>
+        <LocationInfo
+          onClick={() => {
+            updateLocation(props)
+          }}
+        >
+          <Link href="/">
+            <a>
+              <p className="city" aria-label={props.city}>
+                {props.city}
+              </p>
+              <p className="country">{props.country}</p>
+            </a>
+          </Link>
         </LocationInfo>
 
         <Temperature>
