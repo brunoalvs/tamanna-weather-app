@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ILocation } from '../../../types'
 import { useLocationInfo } from '../../contexts/location-info'
-import { getWeather } from '../../helpers/getWeather'
+import useWeather from '../../helpers/getWeather'
 import { ButtonRemoveLocation } from '../ButtonRemoveLocation'
 
 import { Container, LocationInfo, Temperature } from './styles'
@@ -19,10 +19,11 @@ export const LocationCard = ({ ...props }: ILocation) => {
     weather: '',
   })
   const { removeLocation } = useLocationInfo()
+  const { getWeather } = useWeather()
 
   useEffect(() => {
-    getWeather(props).then(result => {
-      setWeatherInfo(result)
+    getWeather(props.coord).then(res => {
+      setWeatherInfo(res)
     })
   }, [])
 
@@ -30,7 +31,9 @@ export const LocationCard = ({ ...props }: ILocation) => {
     <>
       <Container>
         <LocationInfo>
-          <p className="city">{props.city}</p>
+          <p className="city" aria-label={props.city}>
+            {props.city}
+          </p>
           <p className="country">{props.country}</p>
         </LocationInfo>
 

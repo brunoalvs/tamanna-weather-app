@@ -9,7 +9,6 @@ export const Container = styled.header`
 
   @media (max-width: 744px) {
     border-radius: 1.5rem 1.5rem 0 0;
-    /* flex-direction: row; */
   }
 
   @media (max-width: 1224px) {

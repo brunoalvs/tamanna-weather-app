@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react'
+import { useLocationInfo } from '../../contexts/location-info'
+import useWeather from '../../helpers/getWeather'
+
 import {
   Container,
   LocationWeather,
@@ -5,9 +9,16 @@ import {
   SunriseSunset,
 } from './styles'
 
-interface WeatherHomeProps {}
+export const WeatherHome = () => {
+  const { location } = useLocationInfo()
+  const { getWeather } = useWeather()
 
-export const WeatherHome = ({}: WeatherHomeProps) => {
+  const [weather, setWeather] = useState({})
+
+  useEffect(() => {
+    getWeather(location.coord)
+  }, [location])
+
   return (
     <>
       <Container>
