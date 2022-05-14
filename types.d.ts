@@ -1,10 +1,11 @@
-interface ILocation {
+export interface ICoordinates {
+  lat: number
+  lon: number
+}
+export interface ILocation {
   city: string
   country: string
-  coord: {
-    lat: number
-    lon: number
-  }
+  coord: ICoordinates
 }
 
 export type LocationContextType = {

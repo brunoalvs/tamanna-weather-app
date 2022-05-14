@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { ILocation } from '../../types'
 
-import { getUserGeoLocation } from '../helpers/getUserGeoLocation'
-import { getCityByCoordinates } from '../helpers/getCityByCoordinates'
+import handleGeoLocation from '../helpers/userGeoLocation'
 
 type LocationInfoContextType = {
   location: ILocation
@@ -27,25 +26,31 @@ const LocationInfoProvider = ({ children }: { children: React.ReactNode }) => {
   const [locations, setLocations] = useState<ILocation[]>([])
 
   const addLocation = (location: ILocation) => {
+    localStorage.setItem('locations', JSON.stringify([...locations, location]))
     setLocations([...locations, location])
   }
 
   const removeLocation = (location: ILocation) => {
+    localStorage.setItem(
+      'locations',
+      JSON.stringify(locations.filter(l => l.city !== location.city))
+    )
     setLocations(
       locations.filter(locationSaved => locationSaved.city !== location.city)
     )
   }
 
   useEffect(() => {
-    getUserGeoLocation()
-      .then(coord => {
-        getCityByCoordinates(coord[0], coord[1])
-          .then(res => {
-            res && setLocation(res)
-          })
-          .catch(err => {
-            console.error('Error getting city by coordinates', err.message)
-          })
+    const locations = localStorage.getItem('locations')
+    if (locations) {
+      setLocations(JSON.parse(locations))
+    }
+  }, [])
+
+  useEffect(() => {
+    handleGeoLocation()
+      .then(res => {
+        res && setLocation(res)
       })
       .catch(err => {
         console.error('Error getting user location', err.message)
