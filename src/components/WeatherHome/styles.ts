@@ -17,8 +17,9 @@ export const Container = styled.div`
       'weather weather'
       'left right';
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: max-content;
     gap: 5rem;
-    padding: 2rem;
+    padding: 2rem 2rem 5rem;
   }
 `
 

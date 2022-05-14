@@ -45,8 +45,25 @@ const useWeather = () => {
     const data = await getDataInOpenWeatherMapAPI(coordinates, 'forecast')
 
     const forecast: IForecastData = {
-      daily: data.daily,
+      daily: data.daily.map(day => {
+        const weather: IWeatherData = {
+          temp: Math.floor(day.temp.day),
+          description: day.weather[0].description,
+          weather: day.weather[0].icon,
+          minmax: {
+            min: Math.floor(day.temp.min),
+            max: Math.floor(day.temp.max),
+          },
+          sunrise: handleClockTime(day.sunrise),
+          sunset: handleClockTime(day.sunset),
+          dayWeek: day.dt,
+        }
+
+        return weather
+      }),
     }
+
+    console.log('Forecast Return:', forecast)
 
     return forecast
   }

@@ -25,6 +25,7 @@ interface IWeatherData {
   }
   sunrise: string
   sunset: string
+  dayWeek?: number
 }
 
 interface IForecastData {

@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { IWeatherData } from '../../../types'
 import { useLocationInfo } from '../../contexts/location-info'
 import getWeather from '../../helpers/getWeather'
-import { Container } from './styles'
+import { Container, List, ListItem } from './styles'
 
 interface ForecastProps {}
 
@@ -9,23 +10,41 @@ export const Forecast = ({}: ForecastProps) => {
   const { location } = useLocationInfo()
   const { getForecast } = getWeather()
 
+  const [list, setList] = useState<IWeatherData[]>([])
+
   useEffect(() => {
-    getForecast(location.coord)
+    getForecast(location.coord).then(res => {
+      setList(res.daily)
+    })
   }, [])
 
   return (
     <Container>
-      <h2>This Week</h2>
+      <h2 className="title">7 Days Forecast</h2>
 
-      <ul>
-        <li>Sun</li>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
-      </ul>
+      <List>
+        {list.map((item, index) => (
+          <ListItem key={index}>
+            <article>
+              <p className="temp">{item.temp} °C</p>
+              <p>
+                {new Date(item.dayWeek * 1000).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+            </article>
+            <figure>
+              <img
+                src={`/icons/weather/${item.weather}.svg`}
+                alt={item.description}
+              />
+              <figcaption>{item.description}</figcaption>
+            </figure>
+          </ListItem>
+        ))}
+      </List>
     </Container>
   )
 }
