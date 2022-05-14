@@ -6,7 +6,11 @@ async function getDataInOpenWeatherMapAPI(
   type: 'weather' | 'forecast'
 ) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/${type}?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${process.env.OPENWEATHERMAP_APIKEY}`
+    `https://api.openweathermap.org/data/2.5/${
+      type === 'forecast' ? 'onecall' : 'weather'
+    }?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${
+      process.env.OPENWEATHERMAP_APIKEY
+    }`
   )
 
   if (response.status !== 200) {
@@ -34,9 +38,6 @@ const useWeather = () => {
       sunset: handleClockTime(data.sys.sunset),
     }
 
-    console.log('Data from OpenWeatherMap API:', data)
-    console.log('Weather Return:', weather)
-
     return weather
   }
 
@@ -44,7 +45,7 @@ const useWeather = () => {
     const data = await getDataInOpenWeatherMapAPI(coordinates, 'forecast')
 
     const forecast: IForecastData = {
-      data,
+      daily: data.daily,
     }
 
     return forecast

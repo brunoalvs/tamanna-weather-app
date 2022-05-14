@@ -27,4 +27,6 @@ interface IWeatherData {
   sunset: string
 }
 
-interface IForecastData {}
+interface IForecastData {
+  daily: IWeatherData[]
+}

@@ -1,8 +1,18 @@
+import { useEffect } from 'react'
+import { useLocationInfo } from '../../contexts/location-info'
+import getWeather from '../../helpers/getWeather'
 import { Container } from './styles'
 
 interface ForecastProps {}
 
 export const Forecast = ({}: ForecastProps) => {
+  const { location } = useLocationInfo()
+  const { getForecast } = getWeather()
+
+  useEffect(() => {
+    getForecast(location.coord)
+  }, [])
+
   return (
     <Container>
       <h2>This Week</h2>
