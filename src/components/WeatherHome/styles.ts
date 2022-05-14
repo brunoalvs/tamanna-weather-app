@@ -107,7 +107,6 @@ export const SunriseSunset = styled(SquareCard)`
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background-color: var(--foreground);
     }
   }
 `
