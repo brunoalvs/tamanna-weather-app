@@ -21,6 +21,6 @@ export const Content = styled.section`
   overflow-x: auto;
 
   @media (min-width: 745px) {
-    max-height: 100vh;
+    min-height: 100vh;
   }
 `
