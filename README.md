@@ -31,7 +31,7 @@ Use git to clone this repository
 git clone https://github.com/brunoalvs/tamanna-weather-app.git
 ```
 
-Make a copy of `.env.local.example` file and rename copy to `.env.local`, then add your [OpenWeatherMap API Key](https://openweathermap.org/appid) and [Open Cage Data API Key](https://opencagedata.com/api)
+Inside project folder, make a copy of `.env.local.example` file and rename copy to `.env.local`, then add your [OpenWeatherMap API Key](https://openweathermap.org/appid) and [Open Cage Data API Key](https://opencagedata.com/api)
 
 ```bash
 cp .env.local.example .env.local
