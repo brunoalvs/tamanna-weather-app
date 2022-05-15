@@ -2,6 +2,12 @@
 
 This app is part of a challenge proposed by Tamanna, where I needed to create a Weather App using OpenWeatherMap API. This app was created using React, Next.js, TypeScript and Styled Components.
 
+<div align="center">
+  <img alt="Tamanna Weather App" title="Tamanna Weather App" src="./.github/screen.gif"   />
+</div>
+
+---
+
 ## Features
 
 - [x] Get user's geo location;
