@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { ILocation } from '../../types'
 
-import handleGeoLocation from '../helpers/userGeoLocation'
+import handleGeoLocation from '../helpers/handleGeoLocation'
 
 type LocationInfoContextType = {
   location: ILocation

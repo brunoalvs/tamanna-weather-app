@@ -3,14 +3,17 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background-color: var(--foreground);
   padding: 3rem 1.5rem;
-  max-height: 100vh;
-  overflow-y: auto;
 
   .title {
     font-size: 3.6rem;
     color: var(--text-color);
     font-weight: 400;
     text-align: center;
+  }
+
+  @media (min-width: 1040px) {
+    max-height: 100vh;
+    overflow-y: auto;
   }
 `
 
