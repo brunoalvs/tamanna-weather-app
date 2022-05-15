@@ -1,6 +1,6 @@
 # Tamanna Weather App
 
-This is app is part of a challenge purposed by Tamanna, where I needed to create a Weather App using OpenWeatherMap API. This app was created using React, Next.js, TypeScript, Styled Components and Vercel.
+This app is part of a challenge proposed by Tamanna, where I needed to create a Weather App using OpenWeatherMap API. This app was created using React, Next.js, TypeScript and Styled Components.
 
 ## Features
 
@@ -22,10 +22,10 @@ Optionally you can use [Prettier](https://marketplace.visualstudio.com/items?ite
 Use git to clone this repository
 
 ```bash
-$ git clone https://github.com/brunoalvs/tammana-weather-app.git
+git clone https://github.com/brunoalvs/tammana-weather-app.git
 ```
 
-Make a copy of `.env.local.example` file to `.env.local` and add your [OpenWeatherMap API Key](https://openweathermap.org/appid) and [Open Cage Data API Key](https://opencagedata.com/api)
+Make a copy of `.env.local.example` file and rename copy to `.env.local`, then add your [OpenWeatherMap API Key](https://openweathermap.org/appid) and [Open Cage Data API Key](https://opencagedata.com/api)
 
 ```bash
 cp .env.local.example .env.local
@@ -35,4 +35,10 @@ Install dependencies
 
 ```bash
 npm install
+```
+
+Start app running
+
+```bash
+npm run dev
 ```
