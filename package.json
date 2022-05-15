@@ -1,7 +1,7 @@
 {
   "name": "tamanna-weather-app",
-  "version": "0.0.1",
-  "description": "An weather App, using NextJS, Styled-Components and OpenWeatherMap API/",
+  "version": "0.1.0",
+  "description": "An weather App, using NextJS, Styled-Components and OpenWeatherMap API",
   "main": "index.js",
   "repository": "git@github.com:brunoalvs/tamanna-weather-app.git",
   "author": "Bruno Alves <hello@brunoalves.app>",

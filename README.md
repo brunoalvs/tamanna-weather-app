@@ -11,6 +11,12 @@ This is app is part of a challenge purposed by Tamanna, where I needed to create
 - [x] User can remove already saved cities from Locations page;
 - [x] The list of cities added by the user will persist in order to continue when he leaves and comes back to the app.
 
+## Requirements
+
+Before you start, please check if you have [Node.js LTS](https://nodejs.org/en) installed as well as [Git](https://git-scm.com).
+
+Optionally you can use [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extensions in your VSCode.
+
 ## How to run?
 
 Use git to clone this repository
@@ -19,8 +25,14 @@ Use git to clone this repository
 $ git clone https://github.com/brunoalvs/tammana-weather-app.git
 ```
 
-Make a copy of `.env.local.example` file to `.env.local`
+Make a copy of `.env.local.example` file to `.env.local` and add your [OpenWeatherMap API Key](https://openweathermap.org/appid) and [Open Cage Data API Key](https://opencagedata.com/api)
 
 ```bash
+cp .env.local.example .env.local
+```
 
+Install dependencies
+
+```bash
+npm install
 ```
